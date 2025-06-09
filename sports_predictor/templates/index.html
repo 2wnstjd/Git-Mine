@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Predictor</title>
+</head>
+<body>
+    <h1>Sports Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="sport">Choose a sport:</label>
+        <select id="sport" name="sport">
+            {% for s in sports %}
+            <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="team1">Team 1:</label>
+        <input type="text" id="team1" name="team1" required><br>
+        <label for="team2">Team 2:</label>
+        <input type="text" id="team2" name="team2" required><br>
+        <button type="submit">Predict Winner</button>
+    </form>
+</body>
+</html>
