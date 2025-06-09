@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sports Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="sport">Choose a sport:</label>
+            <select id="sport" name="sport">
+                {% for s in sports %}
+                <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+            <label for="team1">Team 1:</label>
+            <input type="text" id="team1" name="team1" required>
+            <label for="team2">Team 2:</label>
+            <input type="text" id="team2" name="team2" required>
+            <button type="submit">Predict Winner</button>
+        </form>
+        <p><a href="/history">View prediction history</a></p>
+    </div>
+</body>
+</html>

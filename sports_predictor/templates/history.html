@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction History</h1>
+        {% if history %}
+        <table class="history">
+            <tr>
+                <th>Sport</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Prediction</th>
+            </tr>
+            {% for item in history %}
+            <tr>
+                <td>{{ item.sport or item['sport'] }}</td>
+                <td>{{ item.team1 or item['team1'] }}</td>
+                <td>{{ item.team2 or item['team2'] }}</td>
+                <td>{{ item.prediction or item['prediction'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No predictions yet.</p>
+        {% endif %}
+        <a href="/">Make another prediction</a>
+    </div>
+</body>
+</html>
